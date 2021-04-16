@@ -4,4 +4,8 @@ date = "2019-09-01"
 tags = ["criminology"]
 +++
 
-In classical economics, a potential offender is treated as a rational agent that seeks to maximize the expected utility when deciding to commit a crime. Therefore, if the threat of legal punishment outweights the perceived gain from crime, then the offender is deterred. However, in reality, there are complex behavioral traits governing the actions of each individuals that deviate from rationality, and these effects need to be captured in order to construct an economic model of deterrence.
+In classical economics, a potential offender is treated as a [rational agent](https://en.wikipedia.org/wiki/Rational_choice_theory) that seeks to maximize the expected utility when deciding whether to commit a crime. Therefore, if the perceived threat of legal punishment outweights the gains from the crime action, then the offender is [deterred](https://en.wikipedia.org/wiki/Deterrence_(penology)). However, in reality, there are complex [behavioral traits](https://en.wikipedia.org/wiki/Prospect_theory) governing the risk perception of each individual that deviate from rationality. These effects need to be captured in order to construct a [general model of deterrence](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3457220).
+
+<!--more-->
+
+[Back to projects](/post)

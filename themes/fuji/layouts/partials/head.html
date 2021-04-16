@@ -24,7 +24,7 @@
 <meta name="description" content="{{ if .Params.description }}{{ .Params.description }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
 {{ end }}
 {{ if .Params.tags }}
-<meta name="keywords" content="{{ delimit .Params.tags ", " }}" />
+<meta name="keywords" content=Params.tags />
 {{ end }}
 {{ with .OutputFormats.Get "rss" -}}
     {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}

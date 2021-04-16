@@ -1,4 +1,4 @@
-baseURL = "https://example.com"
+baseURL = "https://peabrane.github.io/"
 title = "Rudy Pei (裴彦儒)"
 
 theme = "fuji"
@@ -8,11 +8,9 @@ enableRobotsTXT = true
 disableKinds = ["taxonomy"]
 ignoreErrors = ["error-disable-taxonomy"]
 
-## Change this two to switch between different language
-languageCode = "en"  # For RSS, view https://www.rssboard.org/rss-language-codes
-defaultContentLanguage = "en"  # For HTML page, now support: en, zh-hans, zh-hant, ja, nl, pl
+languageCode = "en"  
 
-summaryLength = 100 # Custom summary length, add <!--more--> in post file to custom split point
+summaryLength = 100
 paginate = 10
 
 # googleAnalytics = "UA-000000000-0" # Set your Google Analytics UA here
@@ -32,7 +30,7 @@ paginate = 10
 
 [params]
   author = "PeaBrane" # You can also set author in post front matter individually
-  subTitle = "Interested in mathematical physics, machine learning, and Scriabin. Here are some projects I've been working on."
+  subTitle = "Interested in mathematical physics, machine learning, and Scriabin."
   sourceURL = "https://github.com/PeaBrane"
 
   # Use CloudFlare Workers to accelerate the Google Analytics
@@ -46,25 +44,18 @@ paginate = 10
   # googleAdsense = "0000000000000000"
 
   # Word counter and read time indicator in post metadata
-  showWordCounter = false
+  showWordCounter = true
   showReadTime = false
 
-  # License in the footer
   showLicenseInFooter = false
-
-  # License at the end of each post
   showLicense = false
   showToc = false
+  copyrightStartYear = "2021"
 
-  # Copyright
-  copyrightStartYear = "2020"
-
-  # Open Graph & Twitter Card variables
-  # You can also set description and images in post front matter individually
-  description = "A minimal Hugo theme with nice theme color."
+  description = "the personal webpage of Yan Ru Pei"
+  tags = "yan-ru-pei"
   og = "/img/og.png" # This will use the image called og.png in static/img folder
 
-  # Posts shown in homepage
   mainSections = ["post"]
 
   # Bangumi image chart id
@@ -95,7 +86,7 @@ paginate = 10
   lazyPlaceholderCol = "/assets/lazyload/dsrca_loading_480x540.svg"
 
   # Let images display in full brightness under dark mode
-  # disableDarkImage = true
+  disableDarkImage = true
 
 [markup]
   [markup.goldmark]
@@ -113,17 +104,29 @@ paginate = 10
 
 [menu]
   [[menu.nav]]
-    name = "Home"
+    name = "About me"
     url = "/"
     weight = 1
   [[menu.nav]]
-    name = "CV"
-    url = "/cv/pei_cv.pdf"
+    name = "Projects"
+    url = "/post/"
     weight = 2
   [[menu.nav]]
-    name = "Poems"
-    url = "/poems/leaf.md"
+    name = "CV"
+    url = "/cv/pei_cv.pdf"
     weight = 3
+  [[menu.nav]]
+    name = "Music compositions"
+    url = "/comps/"
+    weight = 4
+  [[menu.nav]]
+    name = "Chinese poems"
+    url = "/poems/"
+    weight = 5
+  [[menu.nav]]
+    name = "Useful links"
+    url = "/links/"
+    weight = 6
 
   [[menu.link]]
     name = "GitHub"
@@ -143,5 +146,5 @@ paginate = 10
     weight = 4
   [[menu.link]]
     name = "Linkedin"
-    url = "https://www.linkedin.com/in/rudy-pei-33a3a7137/"
+    url = "https://www.linkedin.com/in/rudy-pei-33a3a7137"
     weight = 5

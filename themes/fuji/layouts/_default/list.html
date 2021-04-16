@@ -1,6 +1,12 @@
 {{ define "main" }}
-<!-- homepage range in all posts -->
-{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }}
+{{ if .IsHome }} 
+	{{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }} 
+{{ else }}
+    {{ $paginator := .Paginator.Pages }}
+{{ end }}
+<!-- {{ $paginator := .Paginate (where .Site.RegularPages "Type" "in" .Site.Params.mainSections) }} -->
+
+{{ .Content }}
 {{ range $paginator.Pages }}
 <div class="post">
     <h2 class="post-item post-title">
