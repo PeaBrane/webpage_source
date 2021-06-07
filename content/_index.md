@@ -20,6 +20,5 @@ title = "Homepage"
 </div>
 
 I am currently a physics PhD student at [UCSD](https://diventra.physics.ucsd.edu/group1.html) and an amateur [composer](/comps/). <br />
-Find more info [here](cv/pei_cv.pdf). <br />
-Contact me at yrpei at ucsd dot edu. <br />
-Read about my projects [here](post/). <br />
+You can contact me at yrpei@ucsd.edu. <br />
+Read about my projects [here](post/), and find my codes <a href="https://github.com/PeaBrane" target="_blank">here</a>. <br />
