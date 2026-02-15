@@ -2,4 +2,4 @@
 title = "Projects"
 +++
 
-Here are recent projects I'm working on.
+I do cool stuff.

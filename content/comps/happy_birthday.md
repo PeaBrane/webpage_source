@@ -4,7 +4,7 @@ date = "2019-07-17"
 tags = ["piano", "composition"]
 +++
 
-A happy birthday incorporating all of Yuki's favorite songs as her birthday present. Available on [YouTube](https://www.youtube.com/watch?v=nq9Rx24EICs).
+A happy birthday incorporating all of my wife Yuki's favorite songs as her birthday present. Available on [YouTube](https://www.youtube.com/watch?v=nq9Rx24EICs).
 
 <!--more-->
 

@@ -75,6 +75,13 @@ languageCode = "en"
     imageHeight = 200
     subtitle = "AI viber | brain + quantum computing | physicist\n\nPeaBrane = peabrain + p-brane"
 
+    [[params.profileMode.buttons]]
+      name = "Projects"
+      url = "/post/"
+    [[params.profileMode.buttons]]
+      name = "Codes"
+      url = "https://github.com/PeaBrane"
+
   [[params.socialIcons]]
     name = "email"
     url = "mailto:yanrpei@gmail.com"
