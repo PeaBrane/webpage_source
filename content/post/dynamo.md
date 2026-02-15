@@ -108,7 +108,7 @@ Timing simulation is driven by a `PerfModel` with two variants:
 
 ### Scalability
 
-Since the mocker is fully in Rust with a thin Python LCI (Lightweight C Interface) wrapper, each engine instance is just a **tokio task** — not a process, not a GPU. You can spin up **1000+ simulated engines on a single node** (or more), making it practical to stress-test the router and orchestrator at datacenter-scale fleet sizes without any hardware.
+Since the mocker is fully in Rust with a thin Python CLI wrapper, each engine instance is just a **tokio task** — not a process, not a GPU. You can spin up **1000+ simulated engines on a single node** (or more), making it practical to stress-test the router and orchestrator at datacenter-scale fleet sizes without any hardware.
 
 ---
 
