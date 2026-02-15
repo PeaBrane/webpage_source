@@ -1,150 +1,111 @@
 baseURL = "https://peabrane.github.io/"
 title = "Rudy Pei (裴彦儒)"
+theme = "PaperMod"
 
-theme = "fuji"
 hasCJKLanguage = true
 enableEmoji = true
 enableRobotsTXT = true
-disableKinds = ["taxonomy"]
-ignoreErrors = ["error-disable-taxonomy"]
 
-languageCode = "en"  
+languageCode = "en"
 
-summaryLength = 100
-paginate = 10
-
-# googleAnalytics = "UA-000000000-0" # Set your Google Analytics UA here
-
-[outputFormats]
-  [outputFormats.SearchIndex]
-    isPlainText = true
-    notAlternative = true
-    mediaType = "application/json"
-    path = "/search/"
+[pagination]
+  pagerSize = 10
 
 [outputs]
-  home = ["HTML", "RSS", "SearchIndex"]
+  home = ["HTML", "RSS", "JSON"]
 
 [permalinks]
-  post = "/:section/:filename/" # Custom post links, e.g. "/:year/:month/:title/"
-
-[params]
-  author = "PeaBrane" # You can also set author in post front matter individually
-  subTitle = "Interested in mathematical physics, machine learning, and Scriabin."
-  sourceURL = "https://github.com/PeaBrane"
-
-  # Use CloudFlare Workers to accelerate the Google Analytics
-  # If you are using this please comment the googleAnalytics above
-  # Check https://github.com/SukkaW/cloudflare-workers-async-google-analytics for more details
-  # googleAnalyticsTid = "UA-000000000-0"
-  # googleAnalyticsRoute = "https://*.*.workers.dev/"
-
-  # Google AdSense
-  # The AdSense code will be inserted between the head tags of your site.
-  # googleAdsense = "0000000000000000"
-
-  # Word counter and read time indicator in post metadata
-  showWordCounter = true
-  showReadTime = false
-
-  showLicenseInFooter = false
-  showLicense = false
-  showToc = false
-  copyrightStartYear = "2021"
-
-  description = "the personal webpage of Yan Ru Pei"
-  tags = "yan-ru-pei"
-  og = "/img/og.png" # This will use the image called og.png in static/img folder
-
-  mainSections = ["post"]
-
-  # Bangumi image chart id
-  # bgmImageChart = "000000"
-
-  # License
-  license = "CC BY-NC-SA 4.0"
-  licenseLink = "http://creativecommons.org/licenses/by-nc-sa/4.0/"
-
-  # Comments
-  # utterances, see: https://utteranc.es/
-  # utterancesRepo = "*/*"
-  # utterancesIssueTerm = "pathname"
-
-  # Disqus, see: https://disqus.com/admin/install/platforms/universalcode/
-  # disqusShortname = "*********"
-  # Also use DisqusJS for accessing from Mainland China, see: https://github.com/SukkaW/DisqusJS
-  # If you want to set multiple api key, see theme's README for more details
-  # disqusJSApi = "https://*********/"
-  # disqusJSApikey = "**********"
-
-  # custom lazyload placeholder
-  # 16:9
-  lazyPlaceholder = "/assets/lazyload/dsrca_loading_480x270.svg"
-  # 32:9
-  lazyPlaceholderRow = "/assets/lazyload/dsrca_loading_960x270.svg"
-  # 8:9
-  lazyPlaceholderCol = "/assets/lazyload/dsrca_loading_480x540.svg"
-
-  # Let images display in full brightness under dark mode
-  disableDarkImage = true
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true  # Enable user to embed HTML snippets in Markdown content
-  [markup.highlight]
-    codeFences = false  # Disable Hugo's code highlighter
-
-  [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 3
+  post = "/:section/:contentbasename/"
 
 [taxonomies]
   tag = "tags"
 
 [menu]
-  [[menu.nav]]
-    name = "About me"
+  [[menu.main]]
+    name = "About"
     url = "/"
     weight = 1
-  [[menu.nav]]
+  [[menu.main]]
     name = "Projects"
     url = "/post/"
     weight = 2
-  [[menu.nav]]
-    name = "CV"
-    url = "/cv/pei_cv.pdf"
-    weight = 3
-  [[menu.nav]]
-    name = "Music compositions"
+  [[menu.main]]
+    name = "Music"
     url = "/comps/"
-    weight = 4
-  [[menu.nav]]
-    name = "Chinese poems"
+    weight = 3
+  [[menu.main]]
+    name = "Poems"
     url = "/poems/"
+    weight = 4
+  [[menu.main]]
+    name = "CV"
+    url = "/cv/"
     weight = 5
-  [[menu.nav]]
-    name = "Useful links"
+  [[menu.main]]
+    name = "Links"
     url = "/links/"
     weight = 6
+  [[menu.main]]
+    name = "Search"
+    url = "/search/"
+    weight = 7
 
-  [[menu.link]]
-    name = "GitHub"
+[params]
+  env = "production"
+  author = "PeaBrane"
+  description = "the personal webpage of Yan Ru Pei"
+  defaultTheme = "dark"
+  mainsections = ["post"]
+
+  ShowReadingTime = true
+  ShowWordCount = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowToc = false
+
+  images = ["/img/og.png"]
+
+  [params.profileMode]
+    enabled = true
+    title = "Rudy Pei (裴彦儒)"
+    imageUrl = "/profile_pic.jpg"
+    imageTitle = "Rudy Pei"
+    imageWidth = 200
+    imageHeight = 200
+    subtitle = "AI viber | brain + quantum computing | physicist\n\nPeaBrane = peabrain + p-brane"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:yanrpei@gmail.com"
+  [[params.socialIcons]]
+    name = "github"
     url = "https://github.com/PeaBrane"
-    weight = 1
-  [[menu.link]]
-    name = "Google Scholar"
+  [[params.socialIcons]]
+    name = "googlescholar"
     url = "https://scholar.google.com/citations?user=qXQ2nNwAAAAJ&hl=en"
-    weight = 2
-  [[menu.link]]
-    name = "Stack Exchange"
-    url = "https://stackexchange.com/users/9236381/peabrane"
-    weight = 3
-  [[menu.link]]
-    name = "Youtube"
-    url = "https://www.youtube.com/channel/UCwhYKbiCw6UTYU3rg4wC4yA"
-    weight = 4
-  [[menu.link]]
-    name = "Linkedin"
+  [[params.socialIcons]]
+    name = "linkedin"
     url = "https://www.linkedin.com/in/rudy-pei-33a3a7137"
-    weight = 5
+  [[params.socialIcons]]
+    name = "x"
+    url = "https://x.com/PeaBrane10"
+  [[params.socialIcons]]
+    name = "youtube"
+    url = "https://www.youtube.com/channel/UCwhYKbiCw6UTYU3rg4wC4yA"
+  [[params.socialIcons]]
+    name = "stackoverflow"
+    url = "https://stackexchange.com/users/9236381/peabrane"
+  [[params.socialIcons]]
+    name = "rss"
+    url = "/index.xml"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+
+[minify]
+  disableXML = true

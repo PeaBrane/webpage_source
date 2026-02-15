@@ -1,7 +1,7 @@
 +++
 title = "Opus 1: prelude in C"
 date = "2017-04-29"
-tags = ["piano"]
+tags = ["piano", "composition"]
 +++
 
 An early attempt to write a short prelude in a Prokofievian style. The title is almost a joke because the bulk of this piece is not in C. Available on [youtube](https://www.youtube.com/watch?v=Ab0pKJ9TA74&ab_channel=PeaBrane).

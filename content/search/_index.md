@@ -1,4 +1,5 @@
 +++
 title = "Search"
-description = ""
+layout = "search"
+placeholder = "Search..."
 +++

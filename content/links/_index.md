@@ -21,6 +21,8 @@ Here is a growing list of links I visit (almost) on a daily basis.
 	    Alexander Scriabin: Symphony No. 4 "The Poem of Ecstasy"</a></li>
     <li><a href="https://www.youtube.com/watch?v=bAi65Fmbn0A&ab_channel=RiqueBorges" target="_blank">
 	    Ralph Vaughan Williams: Symphony No. 3 "A Pastoral Symphony"</a></li>
+    <li><a href="https://www.youtube.com/watch?v=ZOc2LaPg0_g" target="_blank">
+	    Germaine Tailleferre: Ballade</a></li>
 </ul>
 
 <br/>
@@ -38,13 +40,6 @@ Here is a growing list of links I visit (almost) on a daily basis.
 	    Two minute papers</a></li>
     <li><a href="http://people.math.binghamton.edu/zaslav/Bsg" target="_blank">
 	    Thomas Zaslavsky's bibliography of signed-graph theory</a></li>
-</ul>
-
-<br/>
-<b>Current updates:</b>
-<ul>
-	<li><a href="https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data" target="_blank">
-		Covid-19 data</a></li>
-	<li><a href="https://www.coindesk.com/price/bitcoin" target="_blank">
-		Bitcoin price</a></li>
+    <li><a href="https://doc.rust-lang.org/book/" target="_blank">
+	    The Rust Programming Language</a></li>
 </ul>

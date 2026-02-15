@@ -1,0 +1,11 @@
++++
+title = "Stay With Me x Golden Hour mashup"
+date = "2023-11-10"
+tags = ["piano", "composition"]
++++
+
+A mashup of *Stay With Me* and *Golden Hour*. Available on [YouTube](https://www.youtube.com/watch?v=m2D4OCTpvx4).
+
+<!--more-->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/m2D4OCTpvx4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

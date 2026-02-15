@@ -2,4 +2,4 @@
 title = "Poems"
 +++
 
-I also write crappy Chinese poems in my spare time.
+I also write crappy poems in my spare time.

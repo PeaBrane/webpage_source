@@ -1,7 +1,7 @@
 +++
 title = "Opus 2: Green Water"
 date = "2018-09-08"
-tags = ["piano"]
+tags = ["piano", "composition"]
 +++
 
 A fantasy inspired by a trip to [Gokayama](https://www.japan-guide.com/e/e5950.html). Incorporates elements of impressionism, Hirajoshi scale, mysticism, and jazz into a musical porridge to be [consumed](https://www.youtube.com/watch?v=KIa9ACeGUkg&ab_channel=PeaBrane) in 5 minutes.
