@@ -27,21 +27,25 @@ body {
 }
 
 /* Tab indicator */
-#menu {
-    position: relative;
-}
-
 #menu .active {
+    position: relative;
     border-bottom: none;
 }
 
-#menu-indicator {
+#menu .active::after {
+    content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
     height: 2px;
     background: currentColor;
-    pointer-events: none;
-    transition: left 0.35s ease, width 0.35s ease;
+    animation: indicatorGrow 0.3s ease-out;
+}
+
+@keyframes indicatorGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
 }
 
 /* Profile entrance animations */
@@ -139,8 +143,8 @@ body {
         animation: none;
     }
 
-    #menu-indicator {
-        transition: none;
+    #menu .active::after {
+        animation: none;
     }
 
     ::view-transition-old(root),

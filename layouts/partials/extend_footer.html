@@ -1,42 +1,6 @@
 {{- /* Footer custom content area start */ -}}
 <script>
 (function() {
-    var menu = document.getElementById('menu');
-    if (!menu) return;
-
-    var active = menu.querySelector('.active');
-    if (!active) return;
-
-    var indicator = document.createElement('div');
-    indicator.id = 'menu-indicator';
-    menu.appendChild(indicator);
-
-    var menuRect = menu.getBoundingClientRect();
-    var activeRect = active.getBoundingClientRect();
-    var currentLeft = activeRect.left - menuRect.left + menu.scrollLeft;
-    var currentWidth = activeRect.width;
-
-    var prev = sessionStorage.getItem('tab-indicator');
-    if (prev) {
-        prev = JSON.parse(prev);
-        indicator.style.transition = 'none';
-        indicator.style.left = prev.left + 'px';
-        indicator.style.width = prev.width + 'px';
-        indicator.offsetHeight; // force reflow
-        indicator.style.transition = '';
-        indicator.style.left = currentLeft + 'px';
-        indicator.style.width = currentWidth + 'px';
-    } else {
-        indicator.style.left = currentLeft + 'px';
-        indicator.style.width = currentWidth + 'px';
-    }
-
-    sessionStorage.setItem('tab-indicator', JSON.stringify({ left: currentLeft, width: currentWidth }));
-})();
-</script>
-
-<script>
-(function() {
     var entries = document.querySelectorAll('.post-entry, .first-entry');
     for (var i = 0; i < entries.length; i++) {
         entries[i].style.animationDelay = (i * 0.06) + 's';
