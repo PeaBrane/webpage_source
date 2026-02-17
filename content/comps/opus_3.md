@@ -1,5 +1,5 @@
 +++
-title = "Opus 3: short piece with 100 notes"
+title = "Opus 4: short piece with 100 notes"
 date = "2019-11-05"
 tags = ["piano", "composition"]
 +++

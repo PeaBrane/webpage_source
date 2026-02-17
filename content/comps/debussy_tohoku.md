@@ -1,7 +1,7 @@
 +++
 title = "Debussy: La plus que lente over Tohoku"
 date = "2019-02-13"
-tags = ["piano", "composition"]
+tags = ["piano"]
 +++
 
 A playing of Debussy's *La plus que lente* set over travel pics to Tohoku.

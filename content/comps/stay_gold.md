@@ -1,7 +1,7 @@
 +++
 title = "Stay With Me x Golden Hour mashup"
 date = "2023-11-10"
-tags = ["piano", "composition"]
+tags = ["mashup"]
 +++
 
 A mashup of [*Stay With Me*](https://www.youtube.com/watch?v=QNYT9wVwQ8A) and [*Golden Hour*](https://www.youtube.com/watch?v=PEM0Vs8jf1w).
