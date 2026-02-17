@@ -4,10 +4,10 @@ date = "2020-06-01"
 tags = ["poems"]
 +++
 
-白雀昏天何觅处，
-黑鹰明空归残树。
-心朱血青翼上溢，
-黑泪白卷蜡灼数。
+<span style="color: #f0f0f0">白</span>雀昏天何觅处，
+<span style="color: #555">黑</span>鹰明空归残树。
+心<span style="color: #e74c3c">朱</span>血<span style="color: #00bcd4">青</span>翼上溢，
+<span style="color: #555">黑</span>泪<span style="color: #f0f0f0">白</span>卷蜡灼数。
 
 <!--more-->
 

@@ -4,10 +4,10 @@ date = "2020-06-15"
 tags = ["poems"]
 +++
 
-孤叶枝壳垂，
-夕珠红缘坠。
-朦雾残魂萧，
-手瘦时噬泪。
+孤<span style="color: #e74c3c">叶</span>枝壳垂，
+夕珠<span style="color: #e74c3c">红</span>缘坠。
+朦<span style="color: #3498db">雾</span>残魂萧，
+手瘦时噬<span style="color: #3498db">泪</span>。
 
 <!--more-->
 
