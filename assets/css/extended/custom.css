@@ -92,11 +92,6 @@ body {
 }
 
 /* List entry entrance animation */
-.post-entry, .first-entry {
-    opacity: 0;
-    transform: translateY(10px);
-}
-
 .post-entry.animate-in, .first-entry.animate-in {
     animation: fadeSlideUp 0.4s ease-out both;
 }
