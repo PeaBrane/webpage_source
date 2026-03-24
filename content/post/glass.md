@@ -9,7 +9,7 @@ Unlike ferromagnetic spin models, a [spin glass](https://en.wikipedia.org/wiki/S
 <!--more-->
 
 <p>
-Using a graphical representation for the Ising spin-glass known as the <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378437196004384" target="_blank">Chayes-Machta-Redner</a> (CMR) representation combined with a <a href="https://arxiv.org/abs/1401.7894" target="_blank">contour argument</a>, we were able to rigorously prove the <a href="https://arxiv.org/abs/2105.01188" target="_blank">existence of a finite-temperature phsae transition</a> for the Ising spin-glass of geometric nature. The low-temperature phase is characterized by the coexistence of multiple infinite clusters that are separated spatially and negatively correlated with each other in their spin-overlaps, as shown in the figure below.
+Using a graphical representation for the Ising spin-glass known as the <a href="https://www.sciencedirect.com/science/article/abs/pii/S0378437196004384" target="_blank" rel="noopener noreferrer">Chayes-Machta-Redner</a> (CMR) representation combined with a <a href="https://arxiv.org/abs/1401.7894" target="_blank" rel="noopener noreferrer">contour argument</a>, we were able to rigorously prove the <a href="https://arxiv.org/abs/2105.01188" target="_blank" rel="noopener noreferrer">existence of a finite-temperature phsae transition</a> for the Ising spin-glass of geometric nature. The low-temperature phase is characterized by the coexistence of multiple infinite clusters that are separated spatially and negatively correlated with each other in their spin-overlaps, as shown in the figure below.
 </p>
 
 ![](/img/post/const.png)

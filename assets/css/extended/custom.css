@@ -57,7 +57,7 @@ body {
     animation: fadeSlideUp 0.5s ease-out 0.08s both;
 }
 
-.profile .profile_inner > span {
+.profile .profile_inner > .profile-subtitle {
     animation: fadeSlideUp 0.5s ease-out 0.16s both;
 }
 
@@ -132,7 +132,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .profile .profile_inner img,
     .profile .profile_inner h1,
-    .profile .profile_inner > span,
+    .profile .profile_inner > .profile-subtitle,
     .profile .social-icons,
     .profile .buttons {
         animation: none;

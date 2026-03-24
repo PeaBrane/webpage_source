@@ -14,7 +14,7 @@ The [universality classes](https://en.wikipedia.org/wiki/Universality_class) of 
 <!--more-->
 
 <p>
-When we endow memory to a spin glass, the dynamics will act to steadily decrease the effective temperature of the glass (left figure), in a regime that is continuously near dynamic criticality (the polynomial <a href="https://en.wikipedia.org/wiki/Percolation_critical_exponents" target="_blank">cluster size distribution</a> in the right figure).
+When we endow memory to a spin glass, the dynamics will act to steadily decrease the effective temperature of the glass (left figure), in a regime that is continuously near dynamic criticality (the polynomial <a href="https://en.wikipedia.org/wiki/Percolation_critical_exponents" target="_blank" rel="noopener noreferrer">cluster size distribution</a> in the right figure).
 </p>
 
 ![](/img/post/soc.png)
