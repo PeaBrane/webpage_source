@@ -64,7 +64,7 @@ languageCode = "en"
   ShowCodeCopyButtons = true
   ShowToc = false
 
-  images = ["/img/og.png"]
+  images = ["/profile_pic.jpg"]
 
   [params.assets]
     favicon = "/favicon-32x32.png"
@@ -80,7 +80,7 @@ languageCode = "en"
     imageTitle = "Rudy Pei"
     imageWidth = 200
     imageHeight = 200
-    subtitle = "AI viber | brain + quantum computing | physicist\n\nPeaBrane = peabrain + p-brane"
+    subtitle = "KV$ trader | brain + quantum computing | physicist\n\nPeaBrane = peabrain + p-brane"
 
     [[params.profileMode.buttons]]
       name = "Projects"

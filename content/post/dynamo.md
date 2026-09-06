@@ -4,15 +4,22 @@ date = "2025-10-01"
 tags = ["llm-inference", "distributed-systems", "rust"]
 +++
 
-[Dynamo](https://github.com/ai-dynamo/dynamo) is NVIDIA's open-source datacenter-scale distributed inference serving framework for generative AI and reasoning models. Built in Rust for performance and Python for extensibility, it supports disaggregated prefill and decode, dynamic GPU scheduling, and LLM-aware request routing across multi-node multi-GPU topologies. The project has 6k+ GitHub stars and supports backends including TensorRT-LLM, vLLM, and SGLang.
+[Dynamo](https://github.com/ai-dynamo/dynamo) is NVIDIA's open-source datacenter-scale distributed inference serving framework for generative AI and reasoning models. Built in Rust for performance and Python for extensibility, it supports disaggregated prefill and decode, dynamic GPU scheduling, and LLM-aware request routing across multi-node multi-GPU topologies. It supports backends including TensorRT-LLM, vLLM, and SGLang.
 
 <!--more-->
 
-I worked on three core components:
+This post describes three building blocks from my early work on Dynamo:
 
 - [**KV-Aware Router**](#kv-aware-router) — A hybrid router with two subsystems, the **Indexer** and the **Slot Tracker**, that together enable full KV-aware load balancing across workers.
 - [**Engine Mockers**](#engine-mockers) — Lightweight engine simulators written entirely in Rust that replicate scheduling, block management, and timing behavior without requiring GPUs.
 - [**Data Synthesizer**](#data-synthesizer) — A trace-driven workload generator that learns the statistical structure of a real request trace and synthesizes new datasets with tunable knobs.
+
+That work has since grown in a few directions:
+
+- [**Flash Indexer**](/post/flash-indexer/) — A high-throughput global KV-cache indexer built for the router's event and query path.
+- [**DynoSim**](/post/dynosim/) — Deterministic full-stack simulation and replay for routing, scheduling, planning, and configuration search.
+- [**Multi-DC routing with Gcore**](/post/gcore-global-routing/) — A compact cache-state and Relay architecture for KV-aware routing across geographically distributed deployments.
+- [**Ray Serve LLM integration with Anyscale**](/post/anyscale-routing/) — A runtime-free selection core embedded into Ray's native request and control planes.
 
 ---
 
@@ -44,7 +51,7 @@ The router is a **hybrid design** built from two complementary components: the *
 
 The Indexer maintains a **global overview of all cached KV blocks across all backend workers**. It is built on a [radix tree](https://en.wikipedia.org/wiki/Radix_tree), where each node in the tree corresponds to a block hash and is annotated with the set of workers that have that block cached. When a new request arrives, the router hashes its token sequence into block hashes and walks the radix tree to compute the **prefix overlap** (cache affinity) with each worker. This overlap directly tells us how many tokens the engine can skip during prefill — a longer overlap means a cheaper prefill.
 
-The Indexer runs as a single-threaded [actor](https://en.wikipedia.org/wiki/Actor_model): one dedicated thread owns the radix tree and processes all events (store, remove, match) sequentially through a channel. This keeps the data structure simple and lock-free — no concurrent access, no synchronization overhead. A multithreaded variant (the *Flash Indexer*) that relaxes this constraint for higher throughput is in the works — more on that in a future post.
+The original Indexer runs as a single-threaded [actor](https://en.wikipedia.org/wiki/Actor_model): one dedicated thread owns the radix tree and processes all events (store, remove, match) sequentially through a channel. This keeps the data structure simple and lock-free — no concurrent access, no synchronization overhead. I later worked on the multithreaded [Flash Indexer](/post/flash-indexer/), which uses a different data layout to scale the same global cache-matching problem much further.
 
 ### Slot Tracker
 
@@ -85,7 +92,7 @@ The `KvManager` is a synchronous block manager that mirrors the block lifecycle 
 
 The evictor itself (`LRUEvictor`) uses a `BTreeSet` keyed by insertion counter to maintain strict LRU ordering, matching the behavior of [vLLM](https://github.com/vllm-project/vllm)'s evictor.
 
-The current "manual" backend tracks reference counts explicitly via `HashMap<UniqueBlock, usize>` — functional, but not the most idiomatic Rust. An in-progress integration with **KVBM** (the KV Block Manager library) replaces this with an [RAII](https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization)-based block lifecycle: blocks are reference-counted via smart handles, and deallocation happens automatically when the last handle is dropped. Beyond cleaner code, this also opens the door to **multi-tier memory simulation** (e.g., GPU HBM + CPU DRAM + NVMe), since KVBM natively models tiered storage with configurable eviction strategies (Lineage, LRU, Multi-LRU).
+The original "manual" backend tracks reference counts explicitly via `HashMap<UniqueBlock, usize>`. Later mocker and replay work added KVBM-backed lifecycle modeling, including multi-tier cache state and disaggregated-transfer timing. That work now sits inside the broader [DynoSim](/post/dynosim/) simulation stack.
 
 Crucially, the KvManager also **publishes KV cache events** (store / remove) to the same event sink that the real engines use. This means when a mocker evicts or allocates blocks, the Indexer in the router is updated exactly as it would be with a real engine — making the entire system testable end-to-end without GPUs.
 
