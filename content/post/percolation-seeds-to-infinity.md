@@ -24,7 +24,7 @@ There is also a [14-page picture guide to download](/files/bond-percolation-visu
 
 ## The route through the proof
 
-{{< figure src="/img/post/percolation/roadmap.svg" link="/img/post/percolation/roadmap.svg" alt="The route: a seed reaches a prescribed patch; a buffer supplies entrances and seed trials; gluing extends the connection; boxes carry the route; an exploration grows indefinitely." caption="The local work makes one extension reliable. The global work makes those extensions usable repeatedly." >}}
+{{< proof-figure name="roadmap" alt="The route: a seed reaches a prescribed patch; a buffer supplies entrances and seed trials; gluing extends the connection; boxes carry the route; an exploration grows indefinitely." caption="The local work makes one extension reliable. The global work makes those extensions usable repeatedly." >}}
 
 In bond percolation, each lattice edge is independently open or closed. A cluster consists of vertices joined by open paths. Below the critical density, there is no infinite cluster; above it, there is one. The question is what happens exactly at the critical density.
 
@@ -40,7 +40,7 @@ Under the contradiction assumption, an infinite cluster exists almost surely. As
 
 That gives a reliable connection from the seed to the boundary of a larger cube. But a connection to *somewhere* on the boundary is too vague for the geometry ahead. We will want it to land on a particular patch.
 
-{{< figure src="/img/post/percolation/seed.svg" link="/img/post/percolation/seed.svg" alt="A seed touching a purple path that leaves the surrounding box, followed by a seed-to-patch crossing in an auxiliary cube. A face inset highlights one quarter of a square face." caption="The large seed supplies a reliable way out. Symmetry and FKG turn boundary reachability into a crossing to a prescribed quarter-face." >}}
+{{< proof-figure name="seed" alt="A seed touching a purple path that leaves the surrounding box, followed by a seed-to-patch crossing in an auxiliary cube. A face inset highlights one quarter of a square face." caption="The large seed supplies a reliable way out. Symmetry and FKG turn boundary reachability into a crossing to a prescribed quarter-face." >}}
 
 Divide each face of the surrounding cube into four quarters. Symmetry makes the probabilities of missing the different quarter-faces equal. For independent edges, these miss events are positively correlated: learning that one patch was missed can only increase the chance of missing another. The FKG inequality turns this observation into a bound on missing all the patches together. If missing the entire boundary is extremely unlikely, no prescribed quarter-face can have a large miss probability.
 
@@ -48,11 +48,15 @@ So we obtain a useful local statement: **the seed is very likely to connect to w
 
 At this point, the seed's internal edges do not have to be fully open. Full opening has a different job later.
 
+After fixing all the finite boxes needed in the construction, we lower the edge density slightly. The required local crossing tests remain reliable. Everything that follows then runs at that lower density.
+
+{{< proof-figure name="density" alt="The same finite box and landing patch at criticality and at a slightly lower density, with an arrow marking the decrease." caption="The crossing probabilities remain high. The matching purple routes are schematic; continuity does not preserve the same realized path." >}}
+
 ## 2. Keep the regions straight
 
 Here is a single extension, before worrying about a whole lattice of boxes.
 
-{{< figure src="/img/post/percolation/regions.svg" link="/img/post/percolation/regions.svg" alt="A current target and its dotted buffer overlap a blue next target inside a larger fresh region. A tiny gold seed lies at the center of a dashed auxiliary cube whose green landing half-edge is inside the next target." caption="The small seed, the auxiliary cube, and the next target have different jobs. The auxiliary cube may protrude beyond the target; its selected landing patch must fit inside it." >}}
+{{< proof-figure name="regions" alt="A source approaches the buffer around a current target, which overlaps a blue next target inside a larger fresh region. A tiny gold seed lies at the center of a dashed auxiliary cube whose green landing half-edge is inside the next target." caption="The small seed, the auxiliary cube, and the next target have different jobs. The auxiliary cube may protrude beyond the target; its selected landing patch must fit inside it." >}}
 
 - The **current target** is the rectangle the incoming connection is trying to reach.
 - Its **buffer** supplies a surrounding region with many candidate entry layers.
@@ -70,7 +74,7 @@ Picture the buffer as nested fences around the current target. If the source rea
 
 For one candidate layer, expose the exterior connections and count the reachable entrances. If there are only a few, closing their crossing edges can seal the layer at a definite probability cost. Those crossing edges are still fresh.
 
-{{< figure src="/img/post/percolation/layers.svg" link="/img/post/percolation/layers.svg" alt="Nested rectangular layers surround a current target. Purple paths reach several gates on one layer. A separate picture shows a closed gate blocking access to all inner layers." caption="A reachable, completely sealed outer layer prevents the source from reaching a smaller inner layer. Those blocking events cannot pile up in the same configuration." >}}
+{{< proof-figure name="layers" alt="Nested rectangular layers surround a current target. Purple paths reach several gates on one layer. A separate picture shows a closed gate blocking access to all inner layers." caption="A reachable, completely sealed outer layer prevents the source from reaching a smaller inner layer. Those blocking events cannot pile up in the same configuration." >}}
 
 Now use the nesting. Once an outer layer is reachable and completely sealed, no inner layer can also be reachable from the source. The corresponding blocking events are mutually exclusive, so their probabilities share a limited total budget.
 
@@ -84,7 +88,7 @@ Near the reachable entrances, place separated seed boxes. A successful trial req
 
 That can be extremely rare. We pay for it with space: keep the seed size fixed, then arrange enough separated trials that some succeed. Each trial uses a disjoint set of fresh edges.
 
-{{< figure src="/img/post/percolation/trials.svg" link="/img/post/percolation/trials.svg" alt="An incoming purple cluster reaches five separated seed trials. Some entrance edges and seeds are open, while others fail. The successful seeds are attached to the incoming cluster." caption="We only need some attempts to succeed. These are naturally occurring open seeds in one configuration, not edges we force open or repeatedly resample." >}}
+{{< proof-figure name="trials" alt="An incoming purple cluster reaches five separated seed trials. Some entrance edges and seeds are open, while others fail. The successful seeds are attached to the incoming cluster." caption="We only need some attempts to succeed. These are naturally occurring open seeds in one configuration, not edges we force open or repeatedly resample." >}}
 
 Why insist on full opening? The local crossing estimate says that *some vertex* of the seed connects onward. The incoming path might attach at a different vertex. Opening every internal edge joins the incoming entrance to whichever vertex has the onward connection.
 
@@ -100,6 +104,8 @@ The trouble is the word *first*. It tells us both that one seed was reached and 
 
 The gluing theorem supplies the statement we need: if every relay in a specified set has reliable onward prospects, reaching the relay set but missing the target is unlikely. It handles the fact that the incoming cluster chooses its own point of attachment.
 
+{{< proof-figure name="gluing" alt="An incoming cluster reaches open seeds with either strong or poor conditional prospects for continuing to a target. Dashed green and red curves represent these prospects." caption="Dashed curves represent conditional prospects, not paths already revealed. Gluing handles which reliable seed the incoming connection reaches." >}}
+
 The proof is careful about which information defines the reliable relay set. Quality is determined from the interior edges alone. Exterior information is used to locate and count incoming seed opportunities, then averaged out before applying gluing. Once only the interior is fixed, the remaining edges again have a product law and the relay-quality estimates are the right ones.
 
 That completes one extension: **many entrances, many seed trials, a reached reliable seed, then gluing to the next target**.
@@ -110,7 +116,7 @@ An entrance can appear near a side or corner of the allowed region. The auxiliar
 
 In a two-dimensional picture, choose the half of the forward edge that points toward the target's center. In three dimensions there are two sideways directions, so choose the inward half in each. Their combination is a quarter-face.
 
-{{< figure src="/img/post/percolation/landing.svg" link="/img/post/percolation/landing.svg" alt="A full forward edge protrudes above a blue target. Choosing only its lower, inward half keeps the landing segment inside. A square-face inset shows the corresponding quarter-face in three dimensions." caption="The cube can stick out of the target while its chosen landing patch stays inside. Full-cube containment in fresh space is a separate check." >}}
+{{< proof-figure name="landing" alt="A full forward edge protrudes above a blue target. Choosing only its lower, inward half keeps the landing segment inside. A square-face inset shows the corresponding quarter-face in three dimensions." caption="The cube can stick out of the target while its chosen landing patch stays inside. Full-cube containment in fresh space is a separate check." >}}
 
 The normal direction, which places the face forward or inward, is checked separately. The inward choices control the two sideways coordinates. The patch can cross the target's centerline; what matters is that it cannot escape through the opposite side under the construction's size choices.
 
@@ -124,7 +130,7 @@ Every use of the extension rule needs a buffer around its current target. During
 
 The construction creates room first: **three contractions, one per spatial direction**.
 
-{{< figure src="/img/post/percolation/contractions.svg" link="/img/post/percolation/contractions.svg" alt="Four cuboids show the starting target, contraction along one coordinate, contraction along a second coordinate, and contraction along the third coordinate." caption="Only the targets change. The centers stay fixed during contraction; the shapes are separated here for comparison. Small buffer allowances are omitted." >}}
+{{< proof-figure name="contractions" alt="A brown starting target is followed by three blue cuboids, shrinking along one spatial direction at each step." caption="Only the targets change. The centers stay fixed during contraction; the shapes are separated here for comparison. Small buffer allowances are omitted." >}}
 
 Contraction does not preserve connectivity automatically. The source could reach the large target and miss the smaller one. We use the same extension lemma to make that outcome unlikely, aiming a suitable quarter-face inward so that it lands in the smaller central region.
 
@@ -132,7 +138,7 @@ Nothing is cut out of the open cluster. We ask for an additional connection to a
 
 After those three contractions come **ten translations**. There is no contraction between the ten moves. The target shifts toward the neighbor and grows slightly to absorb the buffers, using the room created at the start.
 
-{{< figure src="/img/post/percolation/translations.svg" link="/img/post/percolation/translations.svg" alt="Two neighboring coarse boxes with inner targets. Ten short shifts carry a contracted target from the first center to the second, with intermediate target outlines and a slightly larger final target." caption="One coarse box-to-box crossing uses all thirteen steps. The final target fits inside the neighbor's standard inner target, so the construction can be repeated." >}}
+{{< proof-figure name="translations" alt="Two neighboring coarse boxes with inner targets. Ten numbered arrows carry a contracted target toward the neighbor, with a few intermediate target outlines showing its gradual growth." caption="One coarse box-to-box crossing uses all thirteen steps. The final target fits inside the neighbor's standard inner target, so the construction can be repeated." >}}
 
 Three reflects the spatial directions. Ten reflects the chosen box separation and step length. Thirteen is their total. The proof needs a fixed finite number of valid moves; these particular counts are not claimed to be minimal.
 
@@ -146,7 +152,7 @@ A good box adds unvisited neighbors to a queue and becomes their parent. Followi
 
 Reserve those edges until the box's turn. Processing other boxes cannot touch them. The prediction therefore stays valid while the box waits.
 
-{{< figure src="/img/post/percolation/freshness.svg" link="/img/post/percolation/freshness.svg" alt="Before processing, the parent is revealed while the current and next boxes are hidden, allowing a relay estimate on the two fresh boxes. Afterward only the current box is revealed, and the next box remains hidden." caption="The relay estimate is applied before revealing the current box. Afterward, compute the next box's connection prospects without inspecting its actual edges." >}}
+{{< proof-figure name="freshness" alt="Before processing, the parent is revealed while the current and next boxes are hidden, allowing a relay estimate on the two fresh boxes. Afterward only the current box is revealed, and the next box remains hidden." caption="The relay estimate is applied before revealing the current box. Afterward, compute the next box's connection prospects without inspecting its actual edges." >}}
 
 When a pending box is processed, reveal its interior and incoming interface. This decides whether its own connection succeeded. For each unvisited neighbor, calculate the chance of extending the connection into that neighbor, averaging over its still-hidden edges.
 
@@ -160,13 +166,13 @@ The exploration starts on a positive-probability event where the root box and it
 
 The coarse boxes are arranged on a square grid. Each still contains a three-dimensional piece of the original lattice: its internal paths can move in all three directions.
 
-{{< figure src="/img/post/percolation/slab.svg" link="/img/post/percolation/slab.svg" alt="A top view of coarse boxes arranged in a square grid, with a connected purple route through some boxes. An inset shows that each coarse box has three-dimensional thickness and an inner target." caption="The array is two-dimensional; the paths inside its boxes are three-dimensional. An infinite route through this thick planar array is sufficient." >}}
+{{< proof-figure name="slab" alt="A top view of coarse boxes arranged in a square grid, with a connected purple route through some boxes. An inset shows that each coarse box has three-dimensional thickness and an inner target." caption="The array is two-dimensional; the paths inside its boxes are three-dimensional. An infinite route through this thick planar array is sufficient." >}}
 
 This is closely related to the Grimmett–Marstrand slab architecture. A slab is infinite in two directions and bounded in the third. A planar array of uniformly thick boxes lives in such a slab, and an infinite cluster there is also an infinite cluster in the full lattice.
 
 The planar arrangement gives a convenient description of how growth could stop. If the good cluster is finite and the queue empties, every outside neighbor of that cluster has been processed and declared bad. Its boundary contains a surrounding dual loop.
 
-{{< figure src="/img/post/percolation/contours.svg" link="/img/post/percolation/contours.svg" alt="A finite green coarse cluster has red bad neighbors along a surrounding dashed dual loop. A second grid shows a purple route continuing past scattered bad boxes." caption="Stopping every route requires a surrounding obstruction. Counting possible loops and controlling collections of bad boxes leaves a positive chance that the exploration never stops." >}}
+{{< proof-figure name="contours" alt="A finite green coarse cluster has red bad neighbors along a surrounding dashed dual loop. A second grid shows a purple route continuing past scattered bad boxes." caption="Stopping every route requires a surrounding obstruction. Counting possible loops and controlling collections of bad boxes leaves a positive chance that the exploration never stops." >}}
 
 Individual steps being reliable would not, by itself, guarantee success along an infinite prescribed chain. The grid offers alternative routes. The contour argument controls the collective obstruction needed to stop them all.
 

@@ -1,0 +1,21 @@
+{{- $name := .Get "name" -}}
+{{- $src := printf "/img/post/percolation/%s.svg" $name -}}
+{{- $mobile := printf "/img/post/percolation/%s-mobile.svg" $name -}}
+{{- $desktopRoot := index (findRE "<svg[^>]*>" (readFile (printf "static%s" $src)) 1) 0 -}}
+{{- $mobileRoot := index (findRE "<svg[^>]*>" (readFile (printf "static%s" $mobile)) 1) 0 -}}
+{{- $width := replaceRE `.* width="([^"]+)".*` "${1}" $desktopRoot -}}
+{{- $height := replaceRE `.* height="([^"]+)".*` "${1}" $desktopRoot -}}
+{{- $mobileWidth := replaceRE `.* width="([^"]+)".*` "${1}" $mobileRoot -}}
+{{- $mobileHeight := replaceRE `.* height="([^"]+)".*` "${1}" $mobileRoot -}}
+<figure class="proof-figure">
+  <a class="proof-figure-image" href="{{ $src }}" target="_blank" rel="noopener" aria-label="Open full-size diagram: {{ .Get "alt" }}">
+    <picture>
+      <source media="(max-width: 900px)" srcset="{{ $mobile }}" width="{{ $mobileWidth }}" height="{{ $mobileHeight }}">
+      <img loading="lazy" decoding="async" src="{{ $src }}" width="{{ $width }}" height="{{ $height }}" alt="{{ .Get "alt" }}">
+    </picture>
+  </a>
+  <figcaption>
+    <p>{{ .Get "caption" | markdownify }}</p>
+    <a class="proof-figure-enlarge" href="{{ $src }}" target="_blank" rel="noopener">Open full-size diagram ↗</a>
+  </figcaption>
+</figure>
