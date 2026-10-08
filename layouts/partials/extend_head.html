@@ -2,4 +2,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+{{- with .Params.youtube_id }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "name": {{ $.Title }},
+  "description": {{ $.Description }},
+  "thumbnailUrl": [
+    "https://i.ytimg.com/vi/{{ . }}/maxresdefault.jpg"
+    {{- with $.Params.cover.image }}, {{ absURL . }}{{ end }}
+  ],
+  "uploadDate": {{ $.Params.video_upload_date }},
+  "duration": {{ $.Params.video_duration }},
+  "embedUrl": "https://www.youtube.com/embed/{{ . }}",
+  "contentUrl": "https://www.youtube.com/watch?v={{ . }}"
+}
+</script>
+{{- end }}
 {{- /* Head custom content area end */ -}}
