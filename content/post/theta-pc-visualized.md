@@ -21,6 +21,8 @@ Open each edge of a lattice independently with probability *p*. Above a critical
 
 The video first maps the whole argument, then zooms into its hardest step.
 
+For a slower, illustrated explanation of the geometric construction, read [From a Seed to an Infinite Cluster](/post/percolation-seeds-to-infinity/). It follows the cubic-lattice argument through seeds, buffers, quarter-faces, contractions, and exploration, taking gluing as given.
+
 **The strategy.** Suppose an infinite cluster existed at *p<sub>c</sub>*. Then certain local "moves" (open paths from a small ball to a nearby target) are likely at *p<sub>c</sub>*, and since each is witnessed by finitely many edges, they stay likely at some *p′* slightly below *p<sub>c</sub>*. Chaining these moves through a lattice of corridors with an adaptive exploration, in which every tested site fails with probability at most ε given everything revealed so far, a Peierls-type count produces an infinite cluster at *p′* &lt; *p<sub>c</sub>*. That contradicts the definition of *p<sub>c</sub>*.
 
 **The hard part.** Each hand-off inside a corridor needs the *joint gluing inequality*, conjectured by [Kozma and Nitzan](https://arxiv.org/abs/2401.12397):
