@@ -140,8 +140,42 @@ For fair ±J couplings and resampling, the Walsh basis exposes the argument with
 
 Finally, disorder chaos compares *different* bond realizations. It does not by itself establish a finite-temperature ordered phase for a single realization: the unperturbed overlap can already be small. Fixed boundary spins or an external field also change the gauge argument and require a separate treatment.
 
+## P.S. UGC and a ground-state approximation gap
+
+Assuming the Unique Games Conjecture (UGC) is true—which OpenAI recently [claimed to prove](https://github.com/openai/math/blob/main/preprints/The-Unique-Games-Theorem-September-23-2026/paper.pdf)—there is a neat, already-known consequence for approximating Ising ground states on **general interaction graphs**. The implication below takes UGC as an assumption.
+
+Give each edge a coupling \(J_{uv}\in\{-1,+1\}\), and let \(m=|E|\). Count satisfied bonds, meaning those with \(J_{uv}\sigma_u\sigma_v=+1\):
+
+\[
+\begin{aligned}
+S(\sigma)&=\sum_{\{u,v\}\in E}
+\frac{1+J_{uv}\sigma_u\sigma_v}{2},\\
+H_J(\sigma)&=-\sum_{\{u,v\}\in E}J_{uv}\sigma_u\sigma_v
+=m-2S(\sigma).
+\end{aligned}
+\]
+
+Writing \(\sigma_v=(-1)^{x_v}\), each satisfied bond is the XOR constraint \(x_u\oplus x_v=(1-J_{uv})/2\). Thus maximizing \(S\) is exactly Max-2-Lin over \(\mathbb F_2\). In the special case \(J_{uv}=-1\) on every edge, satisfied bonds are precisely edges crossing the spin-defined cut. **Max-Cut is already an Ising ground-state problem on the same graph.** No embedding gadgets are needed.
+
+[Khot, Kindler, Mossel and O'Donnell (KKMO), Theorem 1](https://www.stat.berkeley.edu/~mossel/publications/max_cut_final.pdf), show that UGC makes it NP-hard to approximate Max-Cut within any factor greater than the Goemans–Williamson constant \(\alpha_{\mathrm{GW}}\approx0.878567\). Consequently, for any fixed \(\eta>0\), finding spins guaranteed to satisfy \(S(\sigma)\ge(\alpha_{\mathrm{GW}}+\eta)S_{\mathrm{opt}}\) is NP-hard for the general \(\pm J\) class as well. This is an existing hardness theorem expressed in spin-glass language.
+
+For a concrete **ground-state energy-density gap**, write \(E_0=\min_\sigma H_J(\sigma)\). KKMO's theorem says that for every fixed \(-1<\rho<0\) and \(\delta>0\), it is NP-hard to distinguish a maximum satisfied fraction at least \((1-\rho)/2\) from one at most \(\arccos(\rho)/\pi+\delta\). The identity \(E_0=m-2S_{\mathrm{opt}}\) gives the following energy bounds in the two cases, respectively:
+
+\[
+\begin{aligned}
+E_0/m&\le\rho,\\
+E_0/m&\ge 1-\frac{2}{\pi}\arccos(\rho)-2\delta.
+\end{aligned}
+\]
+
+At the parameter giving \(\alpha_{\mathrm{GW}}\), \(\rho\approx-0.689158\). The two thresholds are approximately **\(-0.689158\) versus \(-0.484039\)**, with arbitrarily small slack in the latter. These numbers are just KKMO's gap converted into energy units; the \(0.878567\) approximation ratio itself applies to satisfied bonds, whose objective includes the constant offset \(m\).
+
+The scope matters. These are worst-case instances on general graphs, not a hardness result for independently sampled fair bonds. Fixed-dimensional nearest-neighbor lattices admit polynomial-time approximation schemes for the satisfied-bond objective; see [Bansal, Bravyi and Terhal](https://arxiv.org/abs/0705.1115). Also, this optimization hardness is a separate statement from the disorder-chaos estimate above. The connection back to the lectures is that KKMO's proof uses Boolean noise stability and the Majority Is Stablest theorem.
+
 ### Sources
 
 - Sourav Chatterjee, [*Spin glass phase at zero temperature in the Edwards–Anderson model*](https://arxiv.org/abs/2301.04112).
 - Wei-Kuo Chen, Heejune Kim and Arnab Sen, [*Disorder Chaos in Short-Range, Diluted, and Lévy Spin Glasses*, v4](https://arxiv.org/html/2404.09409v4), especially §§2.2–2.3 and §3.
 - Ryan O'Donnell, [*Analysis of Boolean Functions*](https://www.cs.cmu.edu/~odonnell/papers/Analysis-of-Boolean-Functions-by-Ryan-ODonnell.pdf), §2.4.
+- Subhash Khot, Guy Kindler, Elchanan Mossel and Ryan O'Donnell, [*Optimal Inapproximability Results for MAX-CUT and Other 2-Variable CSPs?*](https://www.stat.berkeley.edu/~mossel/publications/max_cut_final.pdf), Theorem 1.
+- Nikhil Bansal, Sergey Bravyi and Barbara M. Terhal, [*Classical approximation schemes for the ground-state energy of quantum and classical Ising spin Hamiltonians on planar graphs*](https://arxiv.org/abs/0705.1115).
