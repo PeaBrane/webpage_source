@@ -6,16 +6,19 @@
 .post-content .katex {
   font-size: 1.08em;
 }
-.post-content .boolean-proof-figure {
+.post-content .boolean-proof-figure,
+.post-content .math-figure {
   margin: 2em 0;
 }
-.post-content .boolean-proof-figure img {
+.post-content .boolean-proof-figure img,
+.post-content .math-figure img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 12px;
 }
-.post-content .boolean-proof-figure figcaption {
+.post-content .boolean-proof-figure figcaption,
+.post-content .math-figure figcaption {
   margin-top: 0.8em;
   font-size: 0.88em;
   font-weight: 400;

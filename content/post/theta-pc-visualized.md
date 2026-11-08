@@ -31,6 +31,8 @@ For a slower, illustrated explanation of the geometric construction, read [From 
 
 The video shows why the naive "first relay reached" argument fails (on a 4-cycle it loses a factor 1/2), how the proof replaces it with non-negative relay weights read off a triangular matrix (*H*<sup>−1</sup> = *I* − Γ), and why Γ ≥ 0, using the exact-cluster Markov property and alternating cluster resampling.
 
+For the gluing proof on its own, retold with Green functions and a Poisson equation, see [The joint gluing inequality in the language of Green's functions](/post/gluing-green-functions/).
+
 The main source is a preprint and has not been peer reviewed; the video presents its argument.
 
 ### Chapters
